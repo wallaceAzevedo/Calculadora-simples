@@ -1,71 +1,49 @@
-import React, {useState} from 'react'
+import React from 'react'
 import '../Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-
-//import Seunft from "../images/Seunft.png";
+//import calcula from "../images/calculadora.png";
 
 function Calculadora(){
-  const [ result, setResult]= useState("")
-
-  const handleClick = (e) =>{
-    setResult(result.concat(e.target.name));
-  }
-
-  const clear = () => {
-      setResult("");
-  }
-
-  const backspace = () => {
-    setResult(result.slice(0, result.length -1));
-  }
-
-  const calculate = () => {
-    try{
-      setResult(eval(result).toString());
-    } catch(err) {
-      setResult("Erro")
-    }
-    
-  }
     return (
-      <div class="container"  >
-          <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-             <div id="claculadoraCorpo">
-              <form>
-                <input type="text" value={result}/>
-                  </form>
-                    <div className="keypad">
-                      <button className="highlight" onClick={clear} id="clear">Limpar</button>
-                      <button className="highlight"  onClick={backspace} id="backspace">C</button>
-                      <button className="highlight"  name="/" onClick={handleClick}>&divide;</button>
-                      <button name="7"  onClick={handleClick}>7</button>
-                      <button name="8"  onClick={handleClick}>8</button>
-                      <button name="9"  onClick={handleClick}>9</button>
-                      <button className="highlight"  name="*"  onClick={handleClick}>&times;</button>
-                      <button name="4"  onClick={handleClick}>4</button>
-                      <button name="5"  onClick={handleClick}>5</button>
-                      <button name="6"  onClick={handleClick}>6</button>
-                      <button className="highlight"  name="-"  onClick={handleClick}>&ndash;</button>
-                      <button name="1"  onClick={handleClick}>1</button>
-                      <button name="2"  onClick={handleClick}>2</button>
-                      <button name="3"  onClick={handleClick}>3</button>
-                      <button className="highlight"  name="+"  onClick={handleClick}>+</button>
-                      <button name="0"  onClick={handleClick}>0</button>
-                      <button  name="."  onClick={handleClick}>.</button>
-                      <button className="highlight"  onClick={calculate} id="result">=</button>
-                      
-                    </div>  
-                </div>            
-            </div>
+    <div class="container " style={{marginTop:'80px'}}>          
+        <div class="row">
+            <div  class="col-lg-8 col-md-8 col-sm-12" >
+                <div class="row" style={{textAlign:'center'}}>
+                   <div style={{marginTop:'20px'}}>
+                    <h3 className="gradient" style={{fontWeight:'700', fontSize:'30px'}}>
+                        CALCULADORA DE SIMULAÇÃO DE CAPTAÇÃO
+                    </h3>
+                   </div>
+                </div>
+                <div class="row" style={{ textAlign:'center', marginTop:'60px'}}>
+                    <div class="col-3" style={{height:'100%'}}>
+                        <h2 className="gradient" style={{fontWeight:'700', fontSize:'26px'}}>10 MM</h2>
+                        <p style={{fontWeight:'500', fontSize:'16px'}}>Quantidade de seguidores</p>
+                    </div>
+                    <div class="col-3"  style={{height:'100%'}}>
+                        <h2 className="gradient" style={{fontWeight:'700', fontSize:'26px'}}>r$ 30</h2>
+                        <p style={{fontWeight:'500', fontSize:'16px'}}>Valor do token</p>
+                    </div>
+                    <div class="col-3"  style={{height:'100%'}}>
+                        <h2 className="gradient" style={{fontWeight:'700', fontSize:'26px'}}>1%</h2>
+                        <p style={{fontWeight:'500', fontSize:'16px'}}>Percentual de conversão de compra</p>
+                    </div>
+                    <div class="col-3"  style={{height:'100%'}}>
+                        <h2 className="gradient" style={{fontWeight:'700', fontSize:'26px'}}>3 MM</h2>
+                        <p style={{fontWeight:'500', fontSize:'16px'}}>Total arrecadado</p>
+                    </div>
+                </div>
+            </div> 
             
-        </div>              
-      </div>
+             
+            <div  class="col-lg-4 col-md-4 col-sm-12">
+                 
+            </div> 
+        </div>        
+    </div>
         
     );
 }
 
 export default Calculadora;
-
