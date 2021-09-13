@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 
-import Calculadora from "../LandingPage/Calculadora";
+import Calculadora from "../LandingPage/CalculadoraFundida";
 
-
+import CalculadoraCorpo from "../LandingPage/CalculadoraCorpo";
 
 
 function Home() {
@@ -14,6 +14,7 @@ function Home() {
     <React.Fragment>
       
       <Calculadora/>
+      
      
     </React.Fragment>
   );
