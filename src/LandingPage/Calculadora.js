@@ -1,40 +1,63 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import '../Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 //import calcula from "../images/calculadora.png";
 
-function Calculadora(){
 
-    var quantidade = document.getElementById("quantidade").value;
-    var valor = document.getElementById("valor").value;
-    var percentual = document.getElementById("percentual").value;
+function Calcular(){
 
-    var soma = quantidade + valor + percentual;
+    const [qtdUsers, setSubtotal] = useState();
+    const [valorUsers, setNumDiners] = useState();
+    const [conversao, setTipPercetnage] = useState();
 
-    document.getElementById("resultado").innerHTML= soma;
+    const submit = (e) => {
+        e.preventDefault();
+
+    if (qtdUsers == "" || valorUsers == "" || conversao == "") {
+        return false;
+    }
+
+    const usuariosComprados = ( parseInt(conversao) / 100 ) * parseInt(qtdUsers)
+
+    const resultadoCompra = usuariosComprados * parseInt(valorUsers)
+
+
+    document.getElementById("resultado").innerHTML = resultadoCompra;
+    };
     
     return (
     <div class="container " style={{marginTop:'80px'}}>          
         <div class="row">
-            <form id="cadastro">
-                <label>Seguidores</label>
-                <input type="text" id="quantidade" onblur="calcular()"/>
-                
-                <label>Valor token</label>
-                <input type="text" id="valor" onblur="calcular()"/>
+       
 
-                <label>Resultado</label>
-                <input type="text" id="percentual" onblur="calcular()"/><br/>
+    <form onSubmit={submit}>
+        Quantidade de usuários:
+        
+        <input value={qtdUsers} onChange={(e) => setSubtotal(e.target.value)}/><br/>
+
+        valor em reais R$ do token por usuário:
+        <input value={valorUsers} onChange={(e) => setNumDiners(e.target.value)}/><br/>
+
+        Conversão de compra %:
+        <input value={conversao} onChange={(e) => setTipPercetnage(e.target.value)}/>
                 
-                <label>Valor/Quantidade</label>
-                <input type="text" id="resultado" value='' readonly/>
-                
-            </form>     
+
+        R$ <label id="resultado">0</label>
+
+        <br/>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+
+
+    
+            
         </div>        
     </div>
         
     );
 }
 
-export default Calculadora;
+export default Calcular;
