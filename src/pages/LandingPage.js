@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Calculadora from "../LandingPage/CalculadoraFundida";
 
-import CalculadoraCorpo from "../LandingPage/CalculadoraCorpo";
+//import CalculadoraCorpo from "../LandingPage/CalculadoraCorpo";
 
 
 function Home() {
